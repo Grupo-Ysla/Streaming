@@ -2,7 +2,12 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {HomeScreenStack} from './Stack';
-import Discover from '../screens/Discover';
+import {BlurView} from 'expo-blur';
+import {StyleSheet, View} from 'react-native';
+import {Image} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {normalize} from '../helpers/responsive';
+import {ExplorerScreen} from '../screens/ExplorerScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -10,27 +15,49 @@ const BottomTab = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({color, size}) => {
+        tabBarIcon: ({focused, size}) => {
           let iconName = '';
           switch (route.name) {
             case 'home':
-              iconName = 'home-outline';
+              iconName = 'home';
               break;
             case 'List':
-              iconName = 'ios-bar-chart-outline';
-              break;
-            case 'mic':
-              iconName = 'ios-mic-outline';
+              iconName = 'ios-search';
               break;
             case 'doc':
-              iconName = 'ios-bookmark-outline';
+              iconName = 'compass-sharp';
               break;
             case 'user':
-              iconName = 'person-outline';
+              iconName = 'notifications';
               break;
           }
-          return <Icon name={iconName} size={size} color={color} />;
+          return (
+            <Icon
+              name={iconName}
+              size={size}
+              color={focused ? 'white' : 'gray'}
+            />
+          );
         },
+        tabBarStyle: {
+          position: 'absolute',
+          elevation: 0,
+          borderTopWidth: 0,
+          height: normalize(75),
+          paddingBottom: normalize(8),
+          flex: 1,
+        },
+        tabBarBackground: () => (
+          <BlurView intensity={0} style={StyleSheet.absoluteFill}>
+            <Image
+              style={{
+                width: '100%',
+                opacity: 0.1,
+              }}
+              source={require('../components/assets/sustraccion.png')}
+            />
+          </BlurView>
+        ),
       })}>
       <Tab.Screen
         name="home"
@@ -43,13 +70,26 @@ const BottomTab = () => {
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="mic"
+        name={'Twich'}
         component={HomeScreenStack}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({focused, size}) => (
+            <TouchableOpacity>
+              <View style={styles.bottomTwich}>
+                <Image
+                  style={styles.imageBottomTwich}
+                  source={require('../components/assets/Trazado.png')}
+                  resizeMode="cover"
+                />
+              </View>
+            </TouchableOpacity>
+          ),
+        }}
       />
       <Tab.Screen
         name="doc"
-        component={HomeScreenStack}
+        component={ExplorerScreen}
         options={{headerShown: false}}
       />
       <Tab.Screen
@@ -62,3 +102,20 @@ const BottomTab = () => {
 };
 
 export default BottomTab;
+
+const styles = StyleSheet.create({
+  bottomTwich: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    marginBottom: normalize(30),
+    height: normalize(100),
+    left: normalize(0),
+    bottom: normalize(5),
+  },
+  imageBottomTwich: {
+    height: normalize(120),
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

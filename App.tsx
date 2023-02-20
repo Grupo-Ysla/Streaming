@@ -1,12 +1,17 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Animated} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Navigation from './src/navigation/Navigation';
+import SplashScreen from './src/screens/SplashScreen';
 
 const App = () => {
   return (
-    <View style={{flex: 1}}>
-      <Navigation />
-    </View>
+    <SafeAreaProvider>
+      <View style={{flex: 1}}>
+        <Navigation />
+        <SplashScreen />
+      </View>
+    </SafeAreaProvider>
   );
 };
 
