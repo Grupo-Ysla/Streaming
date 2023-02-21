@@ -52,7 +52,7 @@ const BottomTab = () => {
             <Image
               style={{
                 width: '100%',
-                opacity: 0.1,
+                opacity: 0.5,
               }}
               source={require('../components/assets/sustraccion.png')}
             />
