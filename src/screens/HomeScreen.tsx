@@ -9,6 +9,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {normalize} from '../helpers/responsive';
@@ -19,6 +20,7 @@ export const HomeScreen = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <StatusBar hidden={true} barStyle="default" translucent />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flex: 1}}>
           <ImageBackground
@@ -96,183 +98,52 @@ export const HomeScreen = () => {
               <Text style={styles.textStyle}>Musica</Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              height: height / 15,
-              flexDirection: 'row',
-              marginStart: '10%',
-              marginEnd: '10%',
-            }}>
-            <Text
-              style={{
-                fontSize: normalize(15),
-                fontWeight: '400',
-                textAlignVertical: 'center',
-                color: 'white',
-              }}>
-              Canales en vivo
-            </Text>
+          <View style={[styles.ViewCanals, {height: height / 15}]}>
+            <Text style={styles.TextCanals}>Canales en vivo</Text>
           </View>
-          <View
-            style={{
-              height: height / 4,
-              flexDirection: 'row',
-              marginStart: '10%',
-              marginEnd: '10%',
-              borderRadius: normalize(12),
-            }}>
+          <View style={[styles.ViewCanals, {height: height / 4}]}>
             <ImageBackground
               source={require('../components/assets/Streamer.png')}
               resizeMode="cover"
-              style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                left: 0,
-                height: '100%',
-              }}
+              style={styles.ImageStreamer}
             />
-            <View
-              style={{
-                flexDirection: 'row',
-                margin: '5%',
-                height: height / 30,
-                backgroundColor: '#E33FB1',
-                borderRadius: 25,
-                width: '22%',
-              }}>
-              <Text
-                style={{
-                  textAlignVertical: 'center',
-
-                  color: 'white',
-                  fontSize: normalize(12),
-                  fontWeight: '400',
-                  marginStart: '18%',
-                }}>
-                En vivo
-              </Text>
+            <View style={[styles.ViewStreamers, {height: height / 30}]}>
+              <Text style={styles.TextStreamer}>En vivo</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                margin: '5%',
-                marginStart: '32%',
-                height: height / 30,
-                backgroundColor: '#6234C8',
-                borderRadius: 25,
-                width: '30%',
-              }}>
-              <Text
-                style={{
-                  textAlignVertical: 'center',
-
-                  color: 'white',
-                  fontSize: normalize(12),
-                  fontWeight: '400',
-                  marginStart: '18%',
-                }}>
-                13k Views
-              </Text>
+            <View style={[styles.ViewViews, {height: height / 30}]}>
+              <Text style={styles.TextViews}>13k Views</Text>
             </View>
           </View>
           <View
-            style={{
-              height: height / 18,
-              flexDirection: 'column',
-              marginStart: '10%',
-              marginEnd: '10%',
-            }}>
+            style={[
+              styles.ViewTransmission,
+              {
+                height: height / 18,
+              },
+            ]}>
             <Text style={{color: 'white', fontSize: 12}}>
               Auronplay Esta transmitiendo Amoung us
             </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                margin: '1%',
-                borderRadius: 25,
-                width: '100%',
-              }}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  margin: '1%',
-                  backgroundColor: '#707070',
-                  borderRadius: 25,
-                  width: '18%',
-                  opacity: 0.2,
-                }}>
-                <Text
-                  style={{
-                    textAlignVertical: 'center',
-                    color: 'white',
-                    fontSize: normalize(10),
-                    fontWeight: '400',
-                    marginStart: '18%',
-                  }}>
-                  Accion
-                </Text>
+            <View style={styles.ViewCategory}>
+              <View style={styles.ViewCategorySections}>
+                <Text style={styles.TextCategorySections}>Accion</Text>
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  margin: '1%',
-                  backgroundColor: '#707070',
-                  borderRadius: 25,
-                  width: '25%',
-                  opacity: 0.2,
-                }}>
-                <Text
-                  style={{
-                    textAlignVertical: 'center',
-
-                    color: 'white',
-                    fontSize: normalize(10),
-                    fontWeight: '400',
-                    marginStart: '18%',
-                  }}>
-                  Plataformas
-                </Text>
+              <View style={[styles.ViewCategorySections, {width: '25%'}]}>
+                <Text style={styles.TextCategorySections}>Plataformas</Text>
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  margin: '1%',
-                  backgroundColor: '#707070',
-                  borderRadius: 25,
-                  width: '20%',
-                  opacity: 0.2,
-                }}>
-                <Text
-                  style={{
-                    textAlignVertical: 'center',
-
-                    color: 'white',
-                    fontSize: normalize(10),
-                    fontWeight: '400',
-                    marginStart: '18%',
-                  }}>
-                  Deportes
-                </Text>
+              <View style={[styles.ViewCategorySections, {width: '20%'}]}>
+                <Text style={styles.TextCategorySections}>Deportes</Text>
               </View>
             </View>
           </View>
           <View
-            style={{
-              height: height / 15,
-              flexDirection: 'row',
-              marginStart: '10%',
-              marginEnd: '10%',
-            }}>
-            <Text
-              style={{
-                fontSize: normalize(15),
-                fontWeight: '400',
-                textAlignVertical: 'center',
-                color: 'white',
-              }}>
-              Juegos recomendados
-            </Text>
+            style={[
+              styles.ViewCanals,
+              {
+                height: height / 15,
+              },
+            ]}>
+            <Text style={styles.TextRecommended}>Juegos recomendados</Text>
           </View>
           <View
             style={{
@@ -282,71 +153,47 @@ export const HomeScreen = () => {
               width: '100%',
             }}>
             <View
-              style={{
-                width: '20%',
-                height: height / 9,
-                borderRadius: 15,
-              }}>
+              style={[
+                styles.ViewRecommended,
+                {
+                  height: height / 9,
+                },
+              ]}>
               <Image source={require('../components/assets/Minecraft.png')} />
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: normalize(12),
-                }}>
-                Minecraft
-              </Text>
+              <Text style={styles.TextGame}>Minecraft</Text>
             </View>
             <View
-              style={{
-                width: '20%',
-                height: height / 9,
-                borderRadius: 15,
-                marginStart: '10%',
-              }}>
+              style={[
+                styles.ViewRecommended,
+                {
+                  height: height / 9,
+                  marginStart: '10%',
+                },
+              ]}>
               <Image source={require('../components/assets/Minecraft.png')} />
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: normalize(12),
-                }}>
-                Minecraft
-              </Text>
+              <Text style={styles.TextGame}>Minecraft</Text>
             </View>
             <View
-              style={{
-                width: '20%',
-                height: height / 9,
-                borderRadius: 15,
-                marginStart: '10%',
-              }}>
+              style={[
+                styles.ViewRecommended,
+                {
+                  height: height / 9,
+                  marginStart: '10%',
+                },
+              ]}>
               <Image source={require('../components/assets/Minecraft.png')} />
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: normalize(12),
-                }}>
-                Minecraft
-              </Text>
+              <Text style={styles.TextGame}>Minecraft</Text>
             </View>
             <View
-              style={{
-                width: '20%',
-                height: height / 9,
-                borderRadius: 15,
-                marginStart: '10%',
-              }}>
+              style={[
+                styles.ViewRecommended,
+                {
+                  height: height / 9,
+                  marginStart: '10%',
+                },
+              ]}>
               <Image source={require('../components/assets/Minecraft.png')} />
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: normalize(12),
-                }}>
-                Minecraft
-              </Text>
+              <Text style={styles.TextGame}>Minecraft</Text>
             </View>
           </View>
         </View>
@@ -446,5 +293,93 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginStart: '10%',
     marginEnd: '10%',
+  },
+  ViewCanals: {
+    flexDirection: 'row',
+    marginStart: '10%',
+    marginEnd: '10%',
+  },
+  TextCanals: {
+    fontSize: normalize(15),
+    fontWeight: '400',
+    textAlignVertical: 'center',
+    color: 'white',
+  },
+  ImageStreamer: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    height: '100%',
+  },
+  ViewStreamers: {
+    flexDirection: 'row',
+    margin: '5%',
+    backgroundColor: '#E33FB1',
+    borderRadius: 25,
+    width: '22%',
+  },
+  TextStreamer: {
+    textAlignVertical: 'center',
+    color: 'white',
+    fontSize: normalize(12),
+    fontWeight: '400',
+    marginStart: '18%',
+  },
+  ViewViews: {
+    flexDirection: 'row',
+    margin: '5%',
+    marginStart: '32%',
+    backgroundColor: '#6234C8',
+    borderRadius: 25,
+    width: '30%',
+  },
+  TextViews: {
+    textAlignVertical: 'center',
+    color: 'white',
+    fontSize: normalize(12),
+    fontWeight: '400',
+    marginStart: '18%',
+  },
+  ViewTransmission: {
+    flexDirection: 'column',
+    marginStart: '10%',
+    marginEnd: '10%',
+  },
+  ViewCategory: {
+    flexDirection: 'row',
+    margin: '1%',
+    borderRadius: 25,
+    width: '100%',
+  },
+  ViewCategorySections: {
+    flexDirection: 'row',
+    margin: '1%',
+    backgroundColor: '#707070',
+    borderRadius: 25,
+    width: '18%',
+    opacity: 0.2,
+  },
+  TextCategorySections: {
+    textAlignVertical: 'center',
+    color: 'white',
+    fontSize: normalize(10),
+    fontWeight: '400',
+    marginStart: '18%',
+  },
+  TextRecommended: {
+    fontSize: normalize(15),
+    fontWeight: '400',
+    textAlignVertical: 'center',
+    color: 'white',
+  },
+  ViewRecommended: {
+    width: '20%',
+    borderRadius: 15,
+  },
+  TextGame: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: normalize(12),
   },
 });
