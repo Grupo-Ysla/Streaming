@@ -1,199 +1,162 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   ImageBackground,
-  Dimensions,
   Image,
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   StatusBar,
+  ScrollView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {normalize} from '../helpers/responsive';
-import {ScrollView} from 'react-native-gesture-handler';
+import {normalize} from '../common/helpers/responsive';
 
 export const HomeScreen = () => {
-  const {height, width} = Dimensions.get('window');
-
+  console.log('normalize:', normalize(12));
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar hidden={true} barStyle="default" translucent />
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flex: 1}}>
           <ImageBackground
-            source={require('../components/assets/HomeTwich.png')}
+            source={require('../components/assets/images/HomeTwich.png')}
             resizeMode="cover"
             style={styles.ImageBackgroundPrincipal}
           />
-          <View style={{height: height / 5.5, flexDirection: 'row'}}>
-            <ImageBackground
-              source={require('../components/assets/RectanguloSuperior.png')}
-              resizeMode="cover"
-              style={styles.ImageBackgroundName}
-            />
-            <Image
-              style={styles.ImageUser}
-              source={require('../components/assets/Perfil.png')}
-            />
-            <View style={{flexDirection: 'column'}}>
-              <Text style={styles.TextName}>M4st3rmiau</Text>
-              <Text style={styles.TextOnline}>ONLINE</Text>
-            </View>
-            <View style={{justifyContent: 'space-between', marginStart: '20%'}}>
-              <Icon
-                name="md-chatbubble-ellipses-outline"
-                style={styles.IconMessage}
-              />
-            </View>
-            <View style={{flexDirection: 'row'}}>
+
+          <View style={styles.ViewHeader}>
+            <View style={styles.ViewBackgroundHeader} />
+
+            <View style={styles.ViewContainerPerfil}>
               <Image
-                source={require('../components/assets/monedas.png')}
-                style={{
-                  marginTop: normalize(25),
-                  marginLeft: normalize(10),
-                }}
+                style={styles.bottom1}
+                source={require('../components/assets/images/Perfil.png')}
               />
-              <Text style={styles.TextCoins}>200</Text>
+              <View style={styles.TextPerfil}>
+                <Text style={styles.TextName}>M4st3rmiau</Text>
+                <Text style={styles.TextOnline}>ONLINE</Text>
+              </View>
+              <View style={{flexDirection: 'row-reverse', flex: 1}}>
+                <Icon
+                  name="md-chatbubble-ellipses-outline"
+                  style={styles.IconMessage}
+                />
+              </View>
+              <View style={styles.ViewMonedas}>
+                <Image
+                  source={require('../components/assets/images/monedas.png')}
+                  style={styles.ImageMonedas}
+                />
+                <Text style={styles.TextCoins}>200</Text>
+              </View>
             </View>
           </View>
-          <View
-            style={{
-              height: height / 12,
-              flexDirection: 'row',
-              marginStart: '2%',
-            }}>
-            <Image style={[styles.bottom]} />
+
+          <View style={styles.ViewDescubrirContainer}>
+            <Image style={styles.bottom} />
             <Text style={styles.TextDescubrir}>Descubrir</Text>
-            <Text style={styles.TextSiguiente}>Siguiendo</Text>
+            <Text style={styles.TextSiguiendo}>Siguiendo</Text>
           </View>
-          <View
-            style={{
-              height: height / 9,
-              flexDirection: 'row',
-              marginStart: '10%',
-              marginEnd: '10%',
-            }}>
+          <View style={styles.ViewContainerIconsDescubrir}>
             <ImageBackground
-              source={require('../components/assets/Siguiendo.png')}
+              source={require('../components/assets/images/Siguiendo.png')}
               resizeMode="cover"
-              style={styles.ImageBackgroundName}
+              style={styles.ImageBackgroundName1}
             />
-            <TouchableOpacity style={styles.ViewStyle}>
-              <Image source={require('../components/assets/S.Accion.png')} />
-              <Text style={styles.textStyle}>Accion</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.ViewStyle}>
-              <Image source={require('../components/assets/Sports.png')} />
-              <Text style={styles.textStyle}>Sports</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.ViewStyle}>
-              <Image source={require('../components/assets/Rpg.png')} />
-              <Text style={styles.textStyle}>RPG</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.ViewStyle}>
-              <Image source={require('../components/assets/Musica.png')} />
-              <Text style={styles.textStyle}>Musica</Text>
-            </TouchableOpacity>
+            <View style={styles.ViewIconsDescubrir}>
+              <TouchableOpacity style={styles.ViewStyle}>
+                <Image
+                  style={styles.iconStyle}
+                  source={require('../components/assets/images/S.Accion.png')}
+                />
+                <Text style={styles.textStyle}>Accion</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ViewStyle}>
+                <Image
+                  style={styles.iconStyle}
+                  source={require('../components/assets/images/Sports.png')}
+                />
+                <Text style={styles.textStyle}>Sports</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ViewStyle}>
+                <Image
+                  style={styles.iconStyle}
+                  source={require('../components/assets/images/Rpg.png')}
+                />
+                <Text style={styles.textStyle}>RPG</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ViewStyle}>
+                <Image
+                  style={styles.iconStyle}
+                  source={require('../components/assets/images/Musica.png')}
+                />
+                <Text style={styles.textStyle}>Musica</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={[styles.ViewCanals, {height: height / 15}]}>
+          <View style={styles.ViewCanals}>
             <Text style={styles.TextCanals}>Canales en vivo</Text>
           </View>
-          <View style={[styles.ViewCanals, {height: height / 4}]}>
+          <View style={[styles.ViewCanals, {height: normalize(130)}]}>
             <ImageBackground
-              source={require('../components/assets/Streamer.png')}
+              source={require('../components/assets/images/Streamer.png')}
               resizeMode="cover"
               style={styles.ImageStreamer}
             />
-            <View style={[styles.ViewStreamers, {height: height / 30}]}>
+            <View style={styles.ViewStreamers}>
               <Text style={styles.TextStreamer}>En vivo</Text>
             </View>
-            <View style={[styles.ViewViews, {height: height / 30}]}>
+            <View style={styles.ViewViews}>
               <Text style={styles.TextViews}>13k Views</Text>
             </View>
           </View>
-          <View
-            style={[
-              styles.ViewTransmission,
-              {
-                height: height / 18,
-              },
-            ]}>
-            <Text style={{color: 'white', fontSize: 12}}>
+          <View style={styles.ViewTransmission}>
+            <Text style={{color: 'white', fontSize: normalize(12)}}>
               Auronplay Esta transmitiendo Amoung us
             </Text>
             <View style={styles.ViewCategory}>
-              <View style={styles.ViewCategorySections}>
+              <View
+                style={[styles.ViewCategorySections, {width: normalize(41)}]}>
                 <Text style={styles.TextCategorySections}>Accion</Text>
               </View>
-              <View style={[styles.ViewCategorySections, {width: '25%'}]}>
+              <View
+                style={[styles.ViewCategorySections, {width: normalize(75)}]}>
                 <Text style={styles.TextCategorySections}>Plataformas</Text>
               </View>
-              <View style={[styles.ViewCategorySections, {width: '20%'}]}>
+              <View
+                style={[styles.ViewCategorySections, {width: normalize(55)}]}>
                 <Text style={styles.TextCategorySections}>Deportes</Text>
               </View>
             </View>
           </View>
-          <View
-            style={[
-              styles.ViewCanals,
-              {
-                height: height / 15,
-              },
-            ]}>
+          <View style={styles.ViewCanals}>
             <Text style={styles.TextRecommended}>Juegos recomendados</Text>
           </View>
-          <View
-            style={{
-              height: height / 3.2,
-              flexDirection: 'row',
-              marginStart: '10%',
-              width: '100%',
-            }}>
-            <View
-              style={[
-                styles.ViewRecommended,
-                {
-                  height: height / 9,
-                },
-              ]}>
-              <Image source={require('../components/assets/Minecraft.png')} />
-              <Text style={styles.TextGame}>Minecraft</Text>
+
+          <View style={styles.ViewRecommendedContainer}>
+            <View style={styles.ViewRecommended}>
+              <Image
+                style={styles.ImageRecommended}
+                source={require('../components/assets/images/FallGuys.png')}
+              />
+              <Text style={styles.TextGame}>Fall Guys</Text>
             </View>
-            <View
-              style={[
-                styles.ViewRecommended,
-                {
-                  height: height / 9,
-                  marginStart: '10%',
-                },
-              ]}>
-              <Image source={require('../components/assets/Minecraft.png')} />
-              <Text style={styles.TextGame}>Minecraft</Text>
+            <View style={styles.ViewRecommendedJuegos}>
+              <Image
+                style={styles.ImageRecommended}
+                source={require('../components/assets/images/League.png')}
+              />
+              <Text style={styles.TextGame}>Mobile L.</Text>
             </View>
-            <View
-              style={[
-                styles.ViewRecommended,
-                {
-                  height: height / 9,
-                  marginStart: '10%',
-                },
-              ]}>
-              <Image source={require('../components/assets/Minecraft.png')} />
-              <Text style={styles.TextGame}>Minecraft</Text>
-            </View>
-            <View
-              style={[
-                styles.ViewRecommended,
-                {
-                  height: height / 9,
-                  marginStart: '10%',
-                },
-              ]}>
-              <Image source={require('../components/assets/Minecraft.png')} />
-              <Text style={styles.TextGame}>Minecraft</Text>
+            <View style={styles.ViewRecommendedJuegos}>
+              <Image
+                style={styles.ImageRecommended}
+                source={require('../components/assets/images/CallOfDuty.png')}
+              />
+              <Text style={styles.TextGame}>Call oF Duty</Text>
             </View>
           </View>
         </View>
@@ -203,33 +166,47 @@ export const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  bottom: {
-    borderRadius: normalize(100),
-    borderColor: '#8a2be2',
-    borderWidth: normalize(3),
-    marginTop: normalize(25),
-    marginLeft: normalize(25),
-    height: normalize(8),
-    width: normalize(8),
-    backgroundColor: '#8a2be2',
-  },
   textStyle: {
     textAlign: 'center',
     color: 'white',
-    fontSize: normalize(12),
-    bottom: 10,
+    fontSize: normalize(10),
   },
+  iconStyle: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
+  },
+  bottom1: {
+    borderRadius: normalize(20),
+    marginLeft: '10%',
+    backgroundColor: '#8a2be2',
+    height: '100%',
+    width: '100%',
+    flex: 0.3,
+    flexDirection: 'row',
+  },
+  bottom: {
+    borderRadius: normalize(20),
+    borderColor: '#8a2be2',
+    marginTop: normalize(20),
+    width: normalize(7),
+    height: normalize(7),
+    backgroundColor: '#8a2be2',
+  },
+
   ViewStyle: {
     flexDirection: 'column',
-    marginStart: '5%',
+    flex: 1,
   },
+
   TextName: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: normalize(25),
     fontSize: normalize(15),
-    left: normalize(-15),
     color: 'white',
+    flex: 1,
   },
   ImageBackgroundPrincipal: {
     position: 'absolute',
@@ -240,64 +217,76 @@ const styles = StyleSheet.create({
   },
   ImageBackgroundName: {
     position: 'absolute',
-    top: 0,
+    top: '-20%',
     right: 0,
     left: 0,
     opacity: 0.3,
-    height: '100%',
+    height: '110%',
   },
-  ImageUser: {
-    height: normalize(35),
-    width: normalize(35),
-    margin: normalize(25),
-    left: normalize(-3),
-  },
+
   TextOnline: {
-    alignItems: 'center',
-    justifyContent: 'center',
     fontSize: normalize(10),
-    left: normalize(-15),
     color: '#66cdaa',
+    flex: 1,
   },
   IconMessage: {
-    fontSize: normalize(25),
+    fontSize: normalize(30),
     color: 'white',
-    marginTop: normalize(25),
+    marginTop: '-2%',
   },
   TextCoins: {
     position: 'absolute',
-    marginTop: normalize(28),
-    marginStart: normalize(30),
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlignVertical: 'center',
+    textAlign: 'center',
     color: 'white',
     fontWeight: '600',
+    marginStart: '40%',
+    flex: 1,
+    height: '80%',
+    fontSize: normalize(12),
+  },
+  ImageBackgroundExplore: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    opacity: 0.1,
+    height: '100%',
+    width: '95%',
   },
   TextDescubrir: {
-    marginTop: normalize(12),
-    marginLeft: normalize(5),
+    marginLeft: '1%',
     fontSize: normalize(22),
     fontWeight: '300',
     color: 'white',
+    textAlignVertical: 'center',
   },
-  TextSiguiente: {
-    marginTop: normalize(22),
-    marginLeft: '5%',
+  TextSiguiendo: {
+    marginTop: '5%',
+    marginStart: '4%',
     fontSize: normalize(13),
     fontWeight: '300',
     color: 'gray',
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlign: 'center',
   },
-  ViewDescubrir: {
+  ViewDescubrirContainer: {
     flexDirection: 'row',
     marginStart: '10%',
     marginEnd: '10%',
+    flex: 1,
+    height: normalize(40),
+  },
+  ViewDescubrir: {
+    flexDirection: 'row',
+    marginStart: '2%',
+    flex: 1,
+    height: normalize(240),
   },
   ViewCanals: {
     flexDirection: 'row',
     marginStart: '10%',
     marginEnd: '10%',
+    height: normalize(45),
   },
   TextCanals: {
     fontSize: normalize(15),
@@ -316,8 +305,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: '5%',
     backgroundColor: '#E33FB1',
-    borderRadius: 25,
-    width: '22%',
+    borderRadius: normalize(25),
+    width: normalize(55),
+    height: normalize(20),
   },
   TextStreamer: {
     textAlignVertical: 'center',
@@ -325,14 +315,16 @@ const styles = StyleSheet.create({
     fontSize: normalize(12),
     fontWeight: '400',
     marginStart: '18%',
+    textAlign: 'center',
   },
   ViewViews: {
     flexDirection: 'row',
     margin: '5%',
     marginStart: '32%',
     backgroundColor: '#6234C8',
-    borderRadius: 25,
-    width: '30%',
+    borderRadius: normalize(25),
+    width: normalize(80),
+    height: normalize(20),
   },
   TextViews: {
     textAlignVertical: 'center',
@@ -340,24 +332,28 @@ const styles = StyleSheet.create({
     fontSize: normalize(12),
     fontWeight: '400',
     marginStart: '18%',
+    textAlign: 'center',
   },
   ViewTransmission: {
     flexDirection: 'column',
     marginStart: '10%',
     marginEnd: '10%',
+    marginTop: '5%',
+    height: normalize(40),
   },
   ViewCategory: {
     flexDirection: 'row',
     margin: '1%',
-    borderRadius: 25,
+    borderRadius: normalize(25),
     width: '100%',
   },
   ViewCategorySections: {
     flexDirection: 'row',
     margin: '1%',
     backgroundColor: '#707070',
-    borderRadius: 25,
+    borderRadius: normalize(25),
     width: '18%',
+    height: normalize(15),
     opacity: 0.2,
   },
   TextCategorySections: {
@@ -366,6 +362,7 @@ const styles = StyleSheet.create({
     fontSize: normalize(10),
     fontWeight: '400',
     marginStart: '18%',
+    textAlign: 'center',
   },
   TextRecommended: {
     fontSize: normalize(15),
@@ -374,12 +371,92 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   ViewRecommended: {
-    width: '20%',
-    borderRadius: 15,
+    width: normalize(65),
+    borderRadius: normalize(15),
+    height: normalize(60),
+  },
+  ViewRecommendedJuegos: {
+    marginStart: '10%',
+    width: normalize(65),
+    borderRadius: normalize(15),
+    height: normalize(60),
   },
   TextGame: {
     textAlign: 'center',
     color: 'white',
     fontSize: normalize(12),
+    marginTop: '3%',
+  },
+  ImageRecommended: {
+    height: '100%',
+    width: '100%',
+    borderRadius: normalize(15),
+  },
+  ImageBackgroundName1: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    opacity: 0.3,
+    height: '100%',
+  },
+  ViewHeader: {
+    flexDirection: 'row',
+    flex: 1,
+    height: normalize(100),
+  },
+  ViewBackgroundHeader: {
+    flex: 1,
+    position: 'absolute',
+    backgroundColor: '#FFFFFF',
+    width: '100%',
+    opacity: 0.05,
+    height: normalize(100),
+  },
+  ViewContainerPerfil: {
+    flexDirection: 'row',
+    flex: 1,
+    width: '100%',
+    height: normalize(30),
+    marginTop: normalize(35),
+  },
+  TextPerfil: {
+    flexDirection: 'column',
+    flex: 1,
+    marginTop: '-1%',
+    width: '100%',
+    height: normalize(40),
+    left: normalize(15),
+  },
+  ViewMonedas: {
+    flexDirection: 'row',
+    flex: 0.7,
+    marginEnd: '4%',
+  },
+  ImageMonedas: {
+    marginStart: '10%',
+    flex: 1,
+    height: '97%',
+  },
+  ViewContainerIconsDescubrir: {
+    flexDirection: 'row',
+    marginStart: '10%',
+    marginEnd: '10%',
+    height: normalize(65),
+  },
+  ViewIconsDescubrir: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 1,
+    paddingHorizontal: '10%',
+    height: normalize(40),
+    marginTop: normalize(10),
+  },
+  ViewRecommendedContainer: {
+    flexDirection: 'row',
+    marginStart: '10%',
+    width: '100%',
+    flex: 1,
+    height: normalize(190),
   },
 });

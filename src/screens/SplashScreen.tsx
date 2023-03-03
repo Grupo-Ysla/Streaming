@@ -31,7 +31,7 @@ const SplashScreen = () => {
         ],
       }}>
       <Animated.Image
-        source={require('../components/assets/SplashTwich.png')}
+        source={require('../components/assets/images/SplashTwich.png')}
         style={{
           width: '100%',
           flex: 1,

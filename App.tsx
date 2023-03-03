@@ -3,7 +3,6 @@ import {View, Animated} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Navigation from './src/navigation/Navigation';
 import SplashScreen from './src/screens/SplashScreen';
-
 const App = () => {
   return (
     <SafeAreaProvider>
