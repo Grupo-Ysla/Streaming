@@ -212,7 +212,7 @@ export const ExplorerScreen = () => {
 const styles = StyleSheet.create({
   bottom1: {
     borderRadius: normalize(20),
-    marginLeft: '10%',
+    marginLeft: '6%',
     backgroundColor: '#8a2be2',
     height: '100%',
     width: '100%',
@@ -233,6 +233,8 @@ const styles = StyleSheet.create({
     fontSize: normalize(15),
     color: 'white',
     flex: 1,
+    fontFamily: 'Poppins-Bold',
+    letterSpacing: normalize(0.8),
   },
   ImageBackgroundPrincipal: {
     position: 'absolute',
@@ -251,14 +253,14 @@ const styles = StyleSheet.create({
   },
 
   TextOnline: {
-    fontSize: normalize(10),
-    color: '#66cdaa',
+    fontSize: normalize(8),
+    color: '#29C69B',
     flex: 1,
+    fontFamily: 'Poppins-Medium',
   },
   IconMessage: {
-    fontSize: normalize(30),
+    fontSize: normalize(25),
     color: 'white',
-    marginTop: '-2%',
   },
   TextCoins: {
     position: 'absolute',
@@ -281,25 +283,29 @@ const styles = StyleSheet.create({
     width: '95%',
   },
   TextExplorar: {
-    marginLeft: '1%',
-    fontSize: normalize(22),
-    fontWeight: '300',
+    marginLeft: '3%',
+    fontSize: normalize(20),
     color: 'white',
     textAlignVertical: 'center',
+    fontFamily: 'Poppins-Bold',
+    letterSpacing: normalize(0.5),
   },
   TextSiguiente: {
     marginTop: '5%',
-    marginStart: '35%',
+    marginStart: normalize(140),
     fontSize: normalize(13),
     fontWeight: '400',
     color: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    fontFamily: 'Pooppins-Bold',
+    letterSpacing: normalize(1),
   },
   ViewExplorerContainer: {
     flexDirection: 'row',
-    marginStart: '10%',
-    marginEnd: '10%',
+    marginTop: '5%',
+    marginStart: '6%',
+    marginEnd: '6%',
     flex: 1,
     height: normalize(40),
   },
@@ -318,11 +324,15 @@ const styles = StyleSheet.create({
     marginStart: '10%',
     fontSize: normalize(15),
     marginTop: 0,
+    fontFamily: 'Poppins-Bold',
+    letterSpacing: normalize(1),
   },
   TextNumberExplore: {
     color: 'white',
     marginStart: '10%',
-    fontSize: normalize(13),
+    fontSize: normalize(12),
+    fontFamily: 'Poppins-Bold',
+    letterSpacing: normalize(1),
   },
   ViewCategory: {
     flexDirection: 'row',
@@ -333,7 +343,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     color: 'white',
     marginStart: '8%',
-    fontSize: normalize(11),
+    fontSize: normalize(12),
   },
   ViewAllCategories: {
     flexDirection: 'row',
@@ -345,6 +355,8 @@ const styles = StyleSheet.create({
     color: 'white',
     marginStart: '4%',
     fontSize: normalize(13),
+    fontFamily: 'Poppins-Medium',
+    letterSpacing: normalize(0.8),
   },
   ViewCategorySections: {
     flexDirection: 'row',
@@ -393,20 +405,19 @@ const styles = StyleSheet.create({
   TextPerfil: {
     flexDirection: 'column',
     flex: 1,
-    marginTop: '-1%',
     width: '100%',
     height: normalize(40),
-    left: normalize(15),
+    left: normalize(12),
   },
   ViewMonedas: {
     flexDirection: 'row',
-    flex: 0.7,
+    flex: 0.6,
     marginEnd: '4%',
   },
   ImageMonedas: {
     marginStart: '10%',
     flex: 1,
-    height: '97%',
+    height: normalize(30),
   },
   ViewContainerIconsDescubrir: {
     flexDirection: 'row',
@@ -464,7 +475,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     opacity: 0.1,
     flexDirection: 'row',
-    height: normalize(125),
+    height: normalize(110),
     borderRadius: normalize(12),
     width: '100%',
     position: 'absolute',
@@ -473,7 +484,7 @@ const styles = StyleSheet.create({
     left: '10%',
     marginTop: '2%',
     height: normalize(80),
-    width: normalize(70),
+    width: normalize(60),
     borderRadius: normalize(12),
   },
   ViewTextGameCategory: {
@@ -486,6 +497,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: normalize(17),
     width: normalize(170),
+    fontFamily: 'Poppins-SemiBold',
+    letterSpacing: normalize(0.8),
   },
   ViewInformationGameCategory: {
     width: normalize(250),
@@ -495,5 +508,7 @@ const styles = StyleSheet.create({
   TextInformationGameCategory: {
     color: 'white',
     fontSize: normalize(11),
+    fontFamily: 'Poppins-SemiBold',
+    letterSpacing: normalize(0.8),
   },
 });
