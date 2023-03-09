@@ -234,7 +234,6 @@ const styles = StyleSheet.create({
     color: 'white',
     flex: 1,
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(0.8),
   },
   ImageBackgroundPrincipal: {
     position: 'absolute',
@@ -288,7 +287,6 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlignVertical: 'center',
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(0.5),
   },
   TextSiguiente: {
     marginTop: '5%',
@@ -299,7 +297,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: 'Pooppins-Bold',
-    letterSpacing: normalize(1),
   },
   ViewExplorerContainer: {
     flexDirection: 'row',
@@ -325,14 +322,12 @@ const styles = StyleSheet.create({
     fontSize: normalize(15),
     marginTop: 0,
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(1),
   },
   TextNumberExplore: {
     color: 'white',
     marginStart: '10%',
     fontSize: normalize(12),
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(1),
   },
   ViewCategory: {
     flexDirection: 'row',
@@ -356,7 +351,6 @@ const styles = StyleSheet.create({
     marginStart: '4%',
     fontSize: normalize(13),
     fontFamily: 'Poppins-Medium',
-    letterSpacing: normalize(0.8),
   },
   ViewCategorySections: {
     flexDirection: 'row',
@@ -498,7 +492,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(17),
     width: normalize(170),
     fontFamily: 'Poppins-SemiBold',
-    letterSpacing: normalize(0.8),
   },
   ViewInformationGameCategory: {
     width: normalize(250),
@@ -509,6 +502,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: normalize(11),
     fontFamily: 'Poppins-SemiBold',
-    letterSpacing: normalize(0.8),
   },
 });

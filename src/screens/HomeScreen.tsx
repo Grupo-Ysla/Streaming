@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {normalize} from '../common/helpers/responsive';
 
 export const HomeScreen = () => {
-  console.log('normalize:', normalize(12));
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar hidden={true} barStyle="default" translucent />
@@ -176,8 +175,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginStart: normalize(6),
-    width: normalize(50),
+    marginStart: normalize(5),
+    width: normalize(51),
   },
   bottom1: {
     borderRadius: normalize(20),
@@ -196,12 +195,10 @@ const styles = StyleSheet.create({
     height: normalize(7),
     backgroundColor: '#8a2be2',
   },
-
   ViewStyle: {
     flexDirection: 'column',
     flex: 1,
   },
-
   TextName: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -209,7 +206,6 @@ const styles = StyleSheet.create({
     color: 'white',
     flex: 1,
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(0.8),
   },
   ImageBackgroundPrincipal: {
     position: 'absolute',
@@ -262,7 +258,6 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlignVertical: 'center',
     fontFamily: 'Poppins-Bold',
-    letterSpacing: normalize(0.5),
   },
   TextSiguiendo: {
     marginTop: '5%',
@@ -299,7 +294,6 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     color: 'white',
     fontFamily: 'Poppins-SemiBold',
-    letterSpacing: normalize(1),
   },
   ImageStreamer: {
     position: 'absolute',
@@ -323,7 +317,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'center',
     fontFamily: 'Poppins-Medium',
-    letterSpacing: normalize(0.8),
     width: normalize(60),
   },
   ViewViews: {
@@ -341,7 +334,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(11.5),
     fontFamily: 'Poppins-Medium',
     fontWeight: '400',
-    letterSpacing: normalize(0.8),
     width: normalize(70),
     textAlign: 'center',
   },
@@ -398,7 +390,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(11.5),
     marginTop: '3%',
     fontFamily: 'Poppins-Regular',
-    letterSpacing: normalize(0.8),
   },
   ImageRecommended: {
     height: '100%',

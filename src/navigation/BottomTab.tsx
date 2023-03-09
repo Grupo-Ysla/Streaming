@@ -77,7 +77,7 @@ const BottomTab = () => {
         options={{
           headerShown: false,
           tabBarLabel: '',
-          tabBarIcon: ({focused, size}) => (
+          tabBarIcon: () => (
             <TouchableOpacity>
               <View style={styles.bottomTwich}>
                 <Image
@@ -109,10 +109,13 @@ export default BottomTab;
 const styles = StyleSheet.create({
   bottomTwich: {
     marginBottom: normalize(50),
-    height: normalize(100),
+    height: normalize(80),
+    width: normalize(80),
+    alignItems: 'center',
     left: normalize(0),
   },
   imageBottomTwich: {
-    height: normalize(110),
+    height: normalize(50),
+    width: normalize(60),
   },
 });
